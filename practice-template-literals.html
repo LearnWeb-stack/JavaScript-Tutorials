@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Template Literals</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .practice-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .output {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .code-display {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .hint {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Practice Template Literals & String Interpolation</h1>
+        
+        <div class="practice-section">
+            <h2>Instructions</h2>
+            <div class="hint">
+                <p><strong>What You'll Practice:</strong></p>
+                <ul>
+                    <li>Using template literals (backticks `) to create strings</li>
+                    <li>Inserting variables into strings using ${variable}</li>
+                    <li>Creating HTML elements using template literals</li>
+                </ul>
+                <p><strong>How to Use:</strong></p>
+                <ul>
+                    <li>Each practice section has a specific task and expected output</li>
+                    <li>Fill in the input fields with your information</li>
+                    <li>Click the "Generate" button to see both the code and the result</li>
+                    <li>Compare your output with the example provided</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Heading Practice -->
+        <div class="practice-section">
+            <h2>Practice 1: Heading (h1) Tag</h2>
+            <div class="hint">
+                <strong>Task:</strong> Create a heading that says "Welcome, [your name]!" using template literals.
+                <br><br>
+                <strong>Expected Output Example:</strong> If you enter "John", it should generate:
+                <div style="background: #2c3e50; color: white; padding: 5px; margin: 5px 0; border-radius: 4px;">
+                    <h1 style="margin: 0;">Welcome, John!</h1>
+                </div>
+                <strong>Learning Goal:</strong> Practice using template literals to insert a variable into an h1 tag.
+            </div>
+            <div class="input-group">
+                <label for="userName">Enter your name:</label><br>
+                <input type="text" id="userName" placeholder="e.g., John"><br>
+                <button onclick="generateHeading()">Generate Heading</button>
+            </div>
+            <div class="code-display" id="headingCode"></div>
+            <div class="output" id="headingOutput"></div>
+        </div>
+
+        <!-- Paragraph Practice -->
+        <div class="practice-section">
+            <h2>Practice 2: Paragraph (p) Tag</h2>
+            <div class="hint">
+                <strong>Task:</strong> Create a paragraph that says "I am [age] years old and I live in [location]." using template literals.
+                <br><br>
+                <strong>Expected Output Example:</strong> If you enter age "25" and location "New York", it should generate:
+                <div style="background: #2c3e50; color: white; padding: 5px; margin: 5px 0; border-radius: 4px;">
+                    <p style="margin: 0;">I am 25 years old and I live in New York.</p>
+                </div>
+                <strong>Learning Goal:</strong> Practice using template literals to insert multiple variables into a p tag.
+            </div>
+            <div class="input-group">
+                <label for="userAge">Enter your age:</label><br>
+                <input type="text" id="userAge" placeholder="e.g., 25"><br>
+                <label for="userLocation">Enter your location:</label><br>
+                <input type="text" id="userLocation" placeholder="e.g., New York"><br>
+                <button onclick="generateParagraph()">Generate Paragraph</button>
+            </div>
+            <div class="code-display" id="paragraphCode"></div>
+            <div class="output" id="paragraphOutput"></div>
+        </div>
+
+        <!-- Combined Practice -->
+        <div class="practice-section">
+            <h2>Practice 3: Combining Tags</h2>
+            <div class="hint">
+                <strong>Task:</strong> Create a personal introduction using both h1 and p tags. The structure should be:
+                <ul>
+                    <li>An h1 tag saying "Hello, I'm [name]!"</li>
+                    <li>A p tag saying "I really enjoy [hobby]."</li>
+                    <li>Another p tag saying "Welcome to my page!"</li>
+                </ul>
+                <strong>Expected Output Example:</strong> If you enter name "John" and hobby "painting", it should generate:
+                <div style="background: #2c3e50; color: white; padding: 5px; margin: 5px 0; border-radius: 4px;">
+                    <h1 style="margin: 0;">Hello, I'm John!</h1>
+                    <p style="margin: 5px 0;">I really enjoy painting.</p>
+                    <p style="margin: 0;">Welcome to my page!</p>
+                </div>
+                <strong>Learning Goal:</strong> Practice combining multiple HTML tags with template literals to create a structured content block.
+            </div>
+            <div class="input-group">
+                <label for="combinedName">Enter your name:</label><br>
+                <input type="text" id="combinedName" placeholder="e.g., John"><br>
+                <label for="combinedHobby">Enter your hobby:</label><br>
+                <input type="text" id="combinedHobby" placeholder="e.g., painting"><br>
+                <button onclick="generateCombined()">Generate Combined</button>
+            </div>
+            <div class="code-display" id="combinedCode"></div>
+            <div class="output" id="combinedOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateHeading() {
+            const name = document.getElementById('userName').value || 'Guest';
+            const headingTemplate = `<h1>Welcome, ${name}!</h1>`;
+            
+            document.getElementById('headingCode').textContent = 
+                `const name = "${name}";\nconst headingTemplate = \`<h1>Welcome, \${name}!</h1>\`;`;
+            document.getElementById('headingOutput').innerHTML = headingTemplate;
+        }
+
+        function generateParagraph() {
+            const age = document.getElementById('userAge').value || '25';
+            const location = document.getElementById('userLocation').value || 'somewhere';
+            const paragraphTemplate = `<p>I am ${age} years old and I live in ${location}.</p>`;
+            
+            document.getElementById('paragraphCode').textContent = 
+                `const age = "${age}";\nconst location = "${location}";\nconst paragraphTemplate = \`<p>I am \${age} years old and I live in \${location}.</p>\`;`;
+            document.getElementById('paragraphOutput').innerHTML = paragraphTemplate;
+        }
+
+        function generateCombined() {
+            const name = document.getElementById('combinedName').value || 'Guest';
+            const hobby = document.getElementById('combinedHobby').value || 'coding';
+            const combinedTemplate = `
+                <h1>Hello, I'm ${name}!</h1>
+                <p>I really enjoy ${hobby}.</p>
+                <p>Welcome to my page!</p>
+            `;
+            
+            document.getElementById('combinedCode').textContent = 
+                `const name = "${name}";\nconst hobby = "${hobby}";\nconst combinedTemplate = \`
+    <h1>Hello, I'm \${name}!</h1>
+    <p>I really enjoy \${hobby}.</p>
+    <p>Welcome to my page!</p>\`;`;
+            document.getElementById('combinedOutput').innerHTML = combinedTemplate;
+        }
+    </script>
+</body>
+</html>

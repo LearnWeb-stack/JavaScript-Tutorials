@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Functions and Loops</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --bg-color: #f5f6fa;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .practice-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            margin: 1rem 0;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .output {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 10px;
+            min-height: 30px;
+        }
+
+        .hint {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .solution {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .show-solution {
+            background-color: #28a745;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-to-home">← Back to Home</a>
+        <h1>Practice Functions and Loops</h1>
+        <p>Test your skills with these exercises!</p>
+    </header>
+
+    <div class="container">
+        <!-- Factorial Calculator -->
+        <section class="practice-section">
+            <h2>Practice 1: Factorial Calculator</h2>
+            <div class="hint">
+                <p><strong>Task:</strong> Create a function that calculates the factorial of a number using a loop.</p>
+                <p><strong>Example:</strong> Factorial of 5 (5!) = 5 × 4 × 3 × 2 × 1 = 120</p>
+                <p><strong>Required:</strong> Use a for loop to calculate the factorial.</p>
+            </div>
+            <div class="input-group">
+                <label for="factorialInput">Enter a number:</label><br>
+                <input type="number" id="factorialInput" min="0" max="20" placeholder="Enter number (0-20)">
+                <button onclick="calculateFactorial()">Calculate</button>
+                <button onclick="toggleSolution('factorial-solution')" class="show-solution">Show/Hide Solution</button>
+            </div>
+            <div id="factorial-output" class="output"></div>
+            <div id="factorial-solution" class="solution">
+                <pre>
+function calculateFactorial(n) {
+    // Initialize result to 1
+    let result = 1;
+    // Loop from n down to 1
+    for(let i = n; i >= 1; i--) {
+        result *= i;  // Multiply current number
+    }
+    return result;
+}</pre>
+            </div>
+        </section>
+
+        <!-- Sum of Numbers -->
+        <section class="practice-section">
+            <h2>Practice 2: Sum Calculator (While Loop)</h2>
+            <div class="hint">
+                <p><strong>Task:</strong> Create a function that finds the sum of numbers from 1 to n using a while loop.</p>
+                <p><strong>Example:</strong> Sum of numbers from 1 to 5 = 1 + 2 + 3 + 4 + 5 = 15</p>
+                <p><strong>Required:</strong> Use a while loop for this calculation.</p>
+            </div>
+            <div class="input-group">
+                <label for="sumInput">Enter a number:</label><br>
+                <input type="number" id="sumInput" min="1" max="100" placeholder="Enter number (1-100)">
+                <button onclick="calculateSum()">Calculate</button>
+                <button onclick="toggleSolution('sum-solution')" class="show-solution">Show/Hide Solution</button>
+            </div>
+            <div id="sum-output" class="output"></div>
+            <div id="sum-solution" class="solution">
+                <pre>
+function calculateSum(n) {
+    let sum = 0;
+    let i = 1;
+    while(i <= n) {
+        sum += i;
+        i++;
+    }
+    return sum;
+}</pre>
+            </div>
+        </section>
+
+        <!-- Multiplication Table -->
+        <section class="practice-section">
+            <h2>Practice 3: Multiplication Table (Do...While Loop)</h2>
+            <div class="hint">
+                <p><strong>Task:</strong> Create a function that generates a multiplication table for a given number using a do...while loop.</p>
+                <p><strong>Example:</strong> Table of 5: 5×1=5, 5×2=10, etc.</p>
+                <p><strong>Required:</strong> Use a do...while loop to generate the table.</p>
+            </div>
+            <div class="input-group">
+                <label for="tableInput">Enter a number:</label><br>
+                <input type="number" id="tableInput" min="1" max="20" placeholder="Enter number (1-20)">
+                <button onclick="generateTable()">Generate</button>
+                <button onclick="toggleSolution('table-solution')" class="show-solution">Show/Hide Solution</button>
+            </div>
+            <div id="table-output" class="output"></div>
+            <div id="table-solution" class="solution">
+                <pre>
+function generateMultiplicationTable(n) {
+    let i = 1;
+    let table = '';
+    do {
+        table += `${n} × ${i} = ${n * i}\n`;
+        i++;
+    } while(i <= 10);
+    return table;
+}</pre>
+            </div>
+        </section>
+
+        <!-- Power Calculator -->
+        <section class="practice-section">
+            <h2>Practice 4: Power Calculator (For Loop)</h2>
+            <div class="hint">
+                <p><strong>Task:</strong> Create a function that calculates the power of a number (x^n) using a for loop.</p>
+                <p><strong>Example:</strong> 2^3 = 2 × 2 × 2 = 8</p>
+                <p><strong>Required:</strong> Use a for loop (don't use Math.pow()).</p>
+            </div>
+            <div class="input-group">
+                <label for="baseInput">Base number:</label><br>
+                <input type="number" id="baseInput" placeholder="Enter base">
+                <label for="exponentInput">Exponent:</label><br>
+                <input type="number" id="exponentInput" min="0" max="10" placeholder="Enter exponent (0-10)">
+                <button onclick="calculatePower()">Calculate</button>
+                <button onclick="toggleSolution('power-solution')" class="show-solution">Show/Hide Solution</button>
+            </div>
+            <div id="power-output" class="output"></div>
+            <div id="power-solution" class="solution">
+                <pre>
+function calculatePower(base, exponent) {
+    let result = 1;
+    for(let i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
+}</pre>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function calculateFactorial() {
+            const num = parseInt(document.getElementById('factorialInput').value);
+            if (isNaN(num) || num < 0) {
+                document.getElementById('factorial-output').innerHTML = 'Please enter a valid positive number';
+                return;
+            }
+            let result = 1;
+            for(let i = num; i >= 1; i--) {
+                result *= i;
+            }
+            document.getElementById('factorial-output').innerHTML = 
+                `Factorial of ${num} (${num}!) = ${result}`;
+        }
+
+        function calculateSum() {
+            const num = parseInt(document.getElementById('sumInput').value);
+            if (isNaN(num) || num < 1) {
+                document.getElementById('sum-output').innerHTML = 'Please enter a valid positive number';
+                return;
+            }
+            let sum = 0;
+            let i = 1;
+            while(i <= num) {
+                sum += i;
+                i++;
+            }
+            document.getElementById('sum-output').innerHTML = 
+                `Sum of numbers from 1 to ${num} = ${sum}`;
+        }
+
+        function generateTable() {
+            const num = parseInt(document.getElementById('tableInput').value);
+            if (isNaN(num)) {
+                document.getElementById('table-output').innerHTML = 'Please enter a valid number';
+                return;
+            }
+            let i = 1;
+            let table = '';
+            do {
+                table += `${num} × ${i} = ${num * i}<br>`;
+                i++;
+            } while(i <= 10);
+            document.getElementById('table-output').innerHTML = table;
+        }
+
+        function calculatePower() {
+            const base = parseInt(document.getElementById('baseInput').value);
+            const exponent = parseInt(document.getElementById('exponentInput').value);
+            if (isNaN(base) || isNaN(exponent) || exponent < 0) {
+                document.getElementById('power-output').innerHTML = 'Please enter valid numbers';
+                return;
+            }
+            let result = 1;
+            for(let i = 0; i < exponent; i++) {
+                result *= base;
+            }
+            document.getElementById('power-output').innerHTML = 
+                `${base}^${exponent} = ${result}`;
+        }
+
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

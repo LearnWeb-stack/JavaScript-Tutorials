@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --bg-color: #f5f6fa;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .example-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .output {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 10px;
+            min-height: 30px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .beginner {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .intermediate {
+            background-color: #f1c40f;
+            color: black;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .syntax-box {
+            background-color: #e8f4fc;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-to-home">← Back to Home</a>
+        <h1>JavaScript Functions</h1>
+        <p>From Basic to Intermediate Concepts</p>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="section">
+            <h2>What are Functions?</h2>
+            <p>Functions are reusable blocks of code that perform specific tasks. Think of them as mini-programs that you can call whenever you need them. Like a recipe in a cookbook, once you write a function, you can use it again and again without rewriting the same code.</p>
+
+            <div class="note">
+                <strong>Why Use Functions?</strong>
+                <ul>
+                    <li><strong>Code Reusability:</strong> Write once, use many times - saves time and reduces errors</li>
+                    <li><strong>Better Organization:</strong> Break down complex problems into smaller, manageable pieces</li>
+                    <li><strong>Maintainability:</strong> Easier to find and fix bugs when code is organized into functions</li>
+                    <li><strong>Modularity:</strong> Create independent, reusable pieces of code that work together</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                <strong>Key Terms to Know:</strong>
+                <ul>
+                    <li><strong>Function Declaration:</strong> The way you create a function</li>
+                    <li><strong>Parameters:</strong> Variables that functions receive as input</li>
+                    <li><strong>Return Value:</strong> The result that a function sends back</li>
+                    <li><strong>Function Call:</strong> When you use/execute a function</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Basic Function Syntax -->
+        <section class="section">
+            <h2>Basic Function Syntax <span class="difficulty beginner">Beginner</span></h2>
+            
+            <div class="note">
+                <strong>Understanding Function Structure:</strong>
+                <ol>
+                    <li><strong>function keyword:</strong> Tells JavaScript you're creating a function</li>
+                    <li><strong>function name:</strong> What you call your function (make it descriptive!)</li>
+                    <li><strong>parameters:</strong> Input values the function will use (optional)</li>
+                    <li><strong>function body:</strong> The code that runs when the function is called</li>
+                    <li><strong>return statement:</strong> The value the function gives back (optional)</li>
+                </ol>
+            </div>
+            
+            <div class="syntax-box">
+                <pre><code class="language-javascript">
+// Basic function structure
+function functionName(parameter1, parameter2) {
+    // Code to be executed
+    return result;    // Send back a value
+}
+
+// How to call/use the function
+const result = functionName(value1, value2);
+                </code></pre>
+            </div>
+
+            <div class="example-box">
+                <h3>Example 1: Adding Two Numbers</h3>
+                <p><strong>Purpose:</strong> This function takes two numbers and returns their sum.</p>
+                <pre><code class="language-javascript">
+// Function to add two numbers
+function addNumbers(num1, num2) {
+    return num1 + num2;    // Returns the sum of num1 and num2
+}
+
+// Using the function
+const result = addNumbers(5, 3);  // result will be 8
+                </code></pre>
+                <div class="note">
+                    <strong>How it works:</strong>
+                    <ol>
+                        <li>Function receives two parameters: num1 and num2</li>
+                        <li>It adds these numbers using the + operator</li>
+                        <li>Returns the sum using the return statement</li>
+                        <li>When called with addNumbers(5, 3):
+                            <ul>
+                                <li>num1 gets the value 5</li>
+                                <li>num2 gets the value 3</li>
+                                <li>5 + 3 is calculated</li>
+                                <li>8 is returned</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <button onclick="runAddExample()">Try It</button>
+                <div id="add-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Function Types -->
+        <section class="section">
+            <h2>Types of Functions <span class="difficulty beginner">Beginner</span></h2>
+
+            <p>In JavaScript, there are several ways to create functions. Here are the two most common ways:</p>
+
+            <div class="example-box">
+                <h3>1. Function Declaration</h3>
+                <p><strong>Description:</strong> The traditional way to create a function. These are hoisted, meaning you can use them before they're defined in your code.</p>
+                <pre><code class="language-javascript">
+// Function Declaration
+function greet(name) {
+    return `Hello, ${name}!`;    // Uses template literal for string
+}
+
+// You can use it like this:
+const greeting = greet("John");   // Returns: "Hello, John!"
+                </code></pre>
+                <div class="note">
+                    <strong>Key Points:</strong>
+                    <ul>
+                        <li>Starts with the 'function' keyword</li>
+                        <li>Must have a name</li>
+                        <li>Can be used anywhere in your code</li>
+                        <li>Good for main functions that you'll use throughout your code</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>2. Function Expression</h3>
+                <p><strong>Description:</strong> Assigns a function to a variable. These are not hoisted, so you must define them before using them.</p>
+                <pre><code class="language-javascript">
+// Function Expression
+const greet = function(name) {
+    return `Hello, ${name}!`;
+};
+
+// Using the function
+const greeting = greet("Jane");   // Returns: "Hello, Jane!"
+                </code></pre>
+                <div class="note">
+                    <strong>Key Points:</strong>
+                    <ul>
+                        <li>The function is assigned to a variable</li>
+                        <li>The function itself doesn't need a name</li>
+                        <li>Must be defined before you can use it</li>
+                        <li>Good for functions that might be reassigned later</li>
+                    </ul>
+                </div>
+                <button onclick="runGreetExample()">Try Both</button>
+                <div id="greet-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Basic Examples -->
+        <section class="section">
+            <h2>Basic Function Examples <span class="difficulty beginner">Beginner</span></h2>
+
+            <div class="example-box">
+                <h3>Example: Calculate Area of Rectangle</h3>
+                <p><strong>Purpose:</strong> Calculate the area of a rectangle when given length and width.</p>
+                <pre><code class="language-javascript">
+// This function calculates the area of a rectangle
+function calculateArea(length, width) {
+    // Length and width are multiplied to get the area
+    return length * width;
+}
+
+// Using the function
+const area = calculateArea(5, 3);  // area = 15 (5 × 3)
+                </code></pre>
+                <div class="note">
+                    <strong>How it works:</strong>
+                    <ol>
+                        <li>Function takes two parameters: length and width</li>
+                        <li>Multiplies length by width to get area</li>
+                        <li>Returns the calculated area</li>
+                        <li>In the example:
+                            <ul>
+                                <li>length = 5</li>
+                                <li>width = 3</li>
+                                <li>area = 5 × 3 = 15</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <button onclick="runAreaExample()">Try It</button>
+                <div id="area-output" class="output"></div>
+            </div>
+
+            <div class="example-box">
+                <h3>Example: Check Even Number</h3>
+                <p><strong>Purpose:</strong> Determine if a given number is even or odd.</p>
+                <pre><code class="language-javascript">
+// This function checks if a number is even
+function isEven(number) {
+    // Uses modulo operator (%) to check if number is divisible by 2
+    return number % 2 === 0;  // Returns true for even numbers, false for odd
+}
+
+// Using the function
+const checkNumber = isEven(4);  // Returns true because 4 is even
+                </code></pre>
+                <div class="note">
+                    <strong>How it works:</strong>
+                    <ol>
+                        <li>Takes a number as input</li>
+                        <li>Uses modulo (%) to get remainder when divided by 2</li>
+                        <li>If remainder is 0, number is even</li>
+                        <li>Returns true/false (boolean value)</li>
+                    </ol>
+                </div>
+                <button onclick="runEvenExample()">Try It</button>
+                <div id="even-output" class="output"></div>
+            </div>
+
+            <!-- New Nested Functions Example -->
+            <div class="example-box">
+                <h3>Example: Nested Functions with Parameters</h3>
+                <p><strong>Purpose:</strong> Demonstrate how functions can be nested inside other functions and share parameters.</p>
+                <pre><code class="language-javascript">
+// Outer function that calculates total price with tax and discount
+function calculateTotalPrice(price, discountPercent) {
+    // Nested function to calculate discount amount
+    function calculateDiscount(originalPrice) {
+        return (originalPrice * discountPercent) / 100;
+    }
+
+    // Nested function to calculate tax (fixed 10%)
+    function calculateTax(priceAfterDiscount) {
+        const taxRate = 10;
+        return (priceAfterDiscount * taxRate) / 100;
+    }
+
+    // Calculate final price
+    const discount = calculateDiscount(price);
+    const priceAfterDiscount = price - discount;
+    const tax = calculateTax(priceAfterDiscount);
+    
+    return {
+        originalPrice: price,
+        discount: discount,
+        tax: tax,
+        finalPrice: priceAfterDiscount + tax
+    };
+}
+
+// Using the function
+const receipt = calculateTotalPrice(100, 20);  // 100 dollars with 20% discount
+                </code></pre>
+                <div class="note">
+                    <strong>How it works:</strong>
+                    <ol>
+                        <li>Outer function (calculateTotalPrice) takes price and discount percentage</li>
+                        <li>First nested function (calculateDiscount):
+                            <ul>
+                                <li>Uses discountPercent from outer function</li>
+                                <li>Calculates discount amount</li>
+                            </ul>
+                        </li>
+                        <li>Second nested function (calculateTax):
+                            <ul>
+                                <li>Calculates tax on discounted price</li>
+                                <li>Uses fixed tax rate of 10%</li>
+                            </ul>
+                        </li>
+                        <li>Returns object with all calculations</li>
+                    </ol>
+                </div>
+                <button onclick="runNestedExample()">Try It</button>
+                <div id="nested-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Intermediate Concepts -->
+        <section class="section">
+            <h2>Intermediate Function Concepts <span class="difficulty intermediate">Intermediate</span></h2>
+
+            <div class="example-box">
+                <h3>Arrow Functions</h3>
+                <pre><code class="language-javascript">
+// Regular function
+function multiply(a, b) {
+    return a * b;
+}
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Arrow function with single parameter
+const square = x => x * x;
+                </code></pre>
+                <button onclick="runArrowExample()">Try It</button>
+                <div id="arrow-output" class="output"></div>
+            </div>
+
+            <div class="example-box">
+                <h3>Function with Default Parameters</h3>
+                <pre><code class="language-javascript">
+function greetUser(name = 'Guest', greeting = 'Hello') {
+    return `${greeting}, ${name}!`;
+}
+
+const message1 = greetUser();  // "Hello, Guest!"
+const message2 = greetUser('John', 'Hi');  // "Hi, John!"
+                </code></pre>
+                <button onclick="runDefaultParamExample()">Try It</button>
+                <div id="default-param-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Functions with Loops -->
+        <section class="section">
+            <h2>Functions with Loops <span class="difficulty intermediate">Intermediate</span></h2>
+
+            <div class="example-box">
+                <h3>Calculate Sum of Array</h3>
+                <pre><code class="language-javascript">
+function sumArray(numbers) {
+    let sum = 0;
+    for(let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}
+
+const numbers = [1, 2, 3, 4, 5];
+const total = sumArray(numbers);  // total = 15
+                </code></pre>
+                <button onclick="runSumArrayExample()">Try It</button>
+                <div id="sum-array-output" class="output"></div>
+            </div>
+
+            <div class="example-box">
+                <h3>Find Maximum Number</h3>
+                <pre><code class="language-javascript">
+function findMax(numbers) {
+    let max = numbers[0];
+    for(let number of numbers) {
+        if(number > max) {
+            max = number;
+        }
+    }
+    return max;
+}
+
+const nums = [23, 55, 12, 89, 34];
+const maxNum = findMax(nums);  // maxNum = 89
+                </code></pre>
+                <button onclick="runFindMaxExample()">Try It</button>
+                <div id="find-max-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function runAddExample() {
+            function addNumbers(num1, num2) {
+                return num1 + num2;
+            }
+            const result = addNumbers(5, 3);
+            document.getElementById('add-output').innerHTML = `5 + 3 = ${result}`;
+        }
+
+        function runGreetExample() {
+            // Function Declaration
+            function greet1(name) {
+                return `Hello, ${name}!`;
+            }
+
+            // Function Expression
+            const greet2 = function(name) {
+                return `Hello, ${name}!`;
+            };
+
+            const result1 = greet1('John');
+            const result2 = greet2('Jane');
+            document.getElementById('greet-output').innerHTML = 
+                `Function Declaration: ${result1}<br>Function Expression: ${result2}`;
+        }
+
+        function runAreaExample() {
+            function calculateArea(length, width) {
+                return length * width;
+            }
+            const area = calculateArea(5, 3);
+            document.getElementById('area-output').innerHTML = 
+                `Area of rectangle (5 × 3) = ${area} square units`;
+        }
+
+        function runEvenExample() {
+            function isEven(number) {
+                return number % 2 === 0;
+            }
+            const numbers = [4, 7];
+            const results = numbers.map(num => 
+                `${num} is ${isEven(num) ? 'even' : 'odd'}`
+            );
+            document.getElementById('even-output').innerHTML = results.join('<br>');
+        }
+
+        function runArrowExample() {
+            const multiply = (a, b) => a * b;
+            const square = x => x * x;
+            
+            document.getElementById('arrow-output').innerHTML = 
+                `multiply(4, 3) = ${multiply(4, 3)}<br>` +
+                `square(5) = ${square(5)}`;
+        }
+
+        function runDefaultParamExample() {
+            function greetUser(name = 'Guest', greeting = 'Hello') {
+                return `${greeting}, ${name}!`;
+            }
+            
+            document.getElementById('default-param-output').innerHTML = 
+                `${greetUser()}<br>${greetUser('John', 'Hi')}`;
+        }
+
+        function runSumArrayExample() {
+            function sumArray(numbers) {
+                let sum = 0;
+                for(let i = 0; i < numbers.length; i++) {
+                    sum += numbers[i];
+                }
+                return sum;
+            }
+            
+            const numbers = [1, 2, 3, 4, 5];
+            const total = sumArray(numbers);
+            document.getElementById('sum-array-output').innerHTML = 
+                `Sum of [${numbers.join(', ')}] = ${total}`;
+        }
+
+        function runFindMaxExample() {
+            function findMax(numbers) {
+                let max = numbers[0];
+                for(let number of numbers) {
+                    if(number > max) {
+                        max = number;
+                    }
+                }
+                return max;
+            }
+            
+            const nums = [23, 55, 12, 89, 34];
+            const maxNum = findMax(nums);
+            document.getElementById('find-max-output').innerHTML = 
+                `Maximum number in [${nums.join(', ')}] = ${maxNum}`;
+        }
+
+        // Add the new nested function example
+        function runNestedExample() {
+            function calculateTotalPrice(price, discountPercent) {
+                function calculateDiscount(originalPrice) {
+                    return (originalPrice * discountPercent) / 100;
+                }
+
+                function calculateTax(priceAfterDiscount) {
+                    const taxRate = 10;
+                    return (priceAfterDiscount * taxRate) / 100;
+                }
+
+                const discount = calculateDiscount(price);
+                const priceAfterDiscount = price - discount;
+                const tax = calculateTax(priceAfterDiscount);
+                
+                return {
+                    originalPrice: price,
+                    discount: discount.toFixed(2),
+                    tax: tax.toFixed(2),
+                    finalPrice: (priceAfterDiscount + tax).toFixed(2)
+                };
+            }
+            
+            const receipt = calculateTotalPrice(100, 20);
+            document.getElementById('nested-output').innerHTML = 
+                `Original Price: ${receipt.originalPrice}<br>` +
+                `Discount (20%): ${receipt.discount}<br>` +
+                `Tax (10%): ${receipt.tax}<br>` +
+                `Final Price: ${receipt.finalPrice}`;
+        }
+
+        // Initialize Prism.js for syntax highlighting
+        Prism.highlightAll();
+    </script>
+</body>
+</html>

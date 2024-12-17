@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice Exercises</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f5f6fa;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr, 1fr,1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .practice-category {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .practice-category h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .exercise-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .exercise-item {
+            margin: 15px 0;
+            transition: transform 0.2s ease;
+        }
+
+        .exercise-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .exercise-link:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .difficulty {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .beginner {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .intermediate {
+            background-color: #f1c40f;
+            color: black;
+        }
+
+        .advanced {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .info-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .exercise-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .exercise-title {
+            font-weight: 500;
+        }
+
+        .exercise-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-to-home">← Back to Home</a>
+        <h1>JavaScript Practice Exercises</h1>
+    </header>
+
+    <div class="container">
+        <div class="info-box">
+            <h2>How to Use This Practice Section</h2>
+            <p>Select exercises based on your skill level and the concepts you want to practice. Each exercise includes:</p>
+            <ul>
+                <li>Clear instructions and examples</li>
+                <li>Interactive coding environment</li>
+                <li>Immediate feedback on your solutions</li>
+                <li>Hints and tips when needed</li>
+            </ul>
+        </div>
+
+        <div class="practice-grid">
+            <!-- String Manipulation Exercises -->
+            <div class="practice-category">
+                <h2>String Manipulation</h2>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <a href="practice-template-literals.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Template Literals Practice</span>
+                                <span class="exercise-description">Create strings using template literals</span>
+                            </div>
+                            <span class="difficulty beginner">Beginner</span>
+                        </a>
+                    </li>
+                    <li class="exercise-item">
+                        <a href="#string-methods-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">String Methods</span>
+                                <span class="exercise-description">Practice common string operations</span>
+                            </div>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Basic JavaScript Exercises -->
+            <div class="practice-category">
+                <h2>JavaScript Basics</h2>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <a href="#variables-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Variables & Data Types</span>
+                                <span class="exercise-description">Practice declaring and using variables</span>
+                            </div>
+                            <span class="difficulty beginner">Beginner</span>
+                        </a>
+                    </li>
+                    <li class="exercise-item">
+                        <a href="functions-practice-1.html" class="exercise-link" target="_blank">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Functions</span>
+                                <span class="exercise-description">Create and use functions</span>
+                            </div>
+                            <span class="difficulty beginner">Beginner</span>
+                        </a>
+                    </li>
+                <!-- </ul> -->
+            <!-- </div> -->
+            <li class="exercise-item">
+                <a href="functions-practice-2.html" class="exercise-link" target="_blank">
+                    <div class="exercise-details">
+                        <span class="exercise-title">Functions</span>
+                        <span class="exercise-description">Create and use functions </span>
+                    </div>
+                    <span class="difficulty intermediate">Intermediate</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+            <!-- Array Exercises -->
+            <div class="practice-category">
+                <h2>Arrays</h2>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <a href="#array-basics-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Array Basics</span>
+                                <span class="exercise-description">Work with arrays and their methods</span>
+                            </div>
+                            <span class="difficulty beginner">Beginner</span>
+                        </a>
+                    </li>
+                    <li class="exercise-item">
+                        <a href="#array-methods-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Array Methods</span>
+                                <span class="exercise-description">Practice map, filter, and reduce</span>
+                            </div>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- DOM Manipulation Exercises -->
+            <div class="practice-category">
+                <h2>DOM Manipulation</h2>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <a href="#dom-basics-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">DOM Basics</span>
+                                <span class="exercise-description">Select and modify DOM elements</span>
+                            </div>
+                            <span class="difficulty beginner">Beginner</span>
+                        </a>
+                    </li>
+                    <li class="exercise-item">
+                        <a href="#event-handling-practice.html" class="exercise-link">
+                            <div class="exercise-details">
+                                <span class="exercise-title">Event Handling</span>
+                                <span class="exercise-description">Work with event listeners</span>
+                            </div>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
